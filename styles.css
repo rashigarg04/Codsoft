@@ -1,0 +1,61 @@
+:root {
+  --bg: #1e1e1e;
+  --key-bg: #2d2d2d;
+  --accent: #ff9500;
+  --radius: 12px;
+  --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-family: var(--font);
+  color: #fff;
+}
+
+/* ----- Calculator shell ----- */
+.calculator {
+  width: 320px;
+  background: #000;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+/* ----- Display ----- */
+#display {
+  min-height: 80px;
+  padding: 20px 16px;
+  font-size: 2.2rem;
+  text-align: right;
+  word-wrap: break-word;
+  background: #111;
+}
+
+/* ----- Keypad (CSS Grid) ----- */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;              /* thin “grid lines” */
+  background: #111;
+}
+
+.key {
+  padding: 24px 0;
+  font-size: 1.25rem;
+  background: var(--key-bg);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.key:hover     { background: #3a3a3a; }
+
+.operator      { background: #ff9f0a; color: #000; }
+.equal         { grid-column: span 2; background: var(--accent); color: #000; }
+.zero          { grid-column: span 2; }
